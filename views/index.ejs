@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>posts</title>
-    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <h1>Quora</h1>
+    <h1> Quora </h1>
     <% for( post of posts){ %>
     <div class="post">
         <h3 class="user"> @<%= post.username %> </h3>
         <p class="content"> <%= post.content %> </p>    
+        <br>
+        <a href="http://localhost:8080/posts/<%= post.id %>"> See in details</a>
+        <a href="http://localhost:8080/posts/<%= post.id %>/edit">edit</a>
+        <form method="post" action="/posts/<%= post.id %>?_method=delete">
+            <button>delete</button>
+        </form>
     </div>
    <% } %>
 
-   <button>add new post</button>
+   <a href="http://localhost:8080/posts/new">Create New post</a>
 </body>
 </html>
